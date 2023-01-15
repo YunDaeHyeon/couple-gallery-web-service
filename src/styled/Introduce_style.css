@@ -1,29 +1,13 @@
-.sectionContainer{
+.SectionContainer{
     width: 100%;
-    height: calc(100vh - 50px);
-    padding-top: 50px;
+    height: 100%;
     overflow: hidden;
     position: relative;
 }
 
-.section{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    object-fit: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.section::before{
-    content: '';
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: -1;
-    background: inherit;
+.Section{
+    height: 100vh;
+    width: 100vw;
+    background-repeat : no-repeat;
+    background-size : cover;
 }
