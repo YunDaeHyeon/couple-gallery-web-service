@@ -1,4 +1,5 @@
 import {SectionsContainer, Section} from 'react-fullpage';
+import { Fade } from "react-awesome-reveal";
 import '../styled/Introduce_style.css'; 
 
 export default function Introduce(){
@@ -11,13 +12,25 @@ export default function Introduce(){
     return(
         <SectionsContainer {...options}>
             <Section>
-                <img alt="introduce_img1" src="images/introduce_img1.jpg" />
+                <div className='introduce-image1'>
+                    <Fade>
+                        <h1 className='introduce-text'>테스트 1</h1>
+                    </Fade>
+                </div>
             </Section>
             <Section>
-                <img alt="introduce_img2" src="images/introduce_img2.jpg" />
+                <div className='introduce-image2'>
+                    <Fade>
+                        <h1 className='introduce-text'>테스트 2</h1>
+                    </Fade>
+                </div>
             </Section>
             <Section>
-                <img alt="introduce_img3" src="images/introduce_img3.jpg" />
+                <div className='introduce-image3'>
+                    <Fade>
+                        <h1 className='introduce-text'>테스트 3</h1>
+                    </Fade>
+                </div>
             </Section>
         </SectionsContainer>
     );

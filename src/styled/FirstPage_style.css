@@ -1,0 +1,134 @@
+/* 헤더바 css */
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+
+/* header */
+header.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+header.header .header-container{
+	width: 1180px;
+	height: 50px;
+	margin: 0px auto;
+	position: relative; /* absolute 요소의 기준점 설정 */ 
+}
+
+header.header .header-container h1{
+	position: absolute;
+	left: 0px;
+	bottom: 10px;
+}
+
+header.header .header-container h1 a{
+	font: bold 24px/1 "arial"; /* font-weight: bold, font-size: 24px, line-height: 1, font-family: "arial"의 축약 */
+	color: #444;
+}
+
+header.header .header-container .header-leftbar{
+	position: absolute;
+	bottom: 0px;
+	left: 50px;
+}
+
+header.header .header-container .header-leftbar li{
+	float: left;
+}
+
+header.header .header-container .header-leftbar li a{
+	display: block; /* 인라인 요소는 block을 설정하여 크기 조절이 가능하다. */
+	font: bold 15px/1 "arial";
+	color: #555;
+	padding: 20px 40px;
+	transition: all 0.5s;
+}
+
+/* 사용자가 a 태그 위에 마우스를 올려다놓으면 (hover) */
+header.header .header-container .header-leftbar li a:hover{
+	background: #555;
+	color: #fff;
+}
+
+
+header.header .header-container .header-rightbar{
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+header.header .header-container .header-rightbar li{
+	float: left; /* float를 해제하지 않은 이유는 해당 요소 자체가 이미 absolute이기 때문에 부모가 인식을 못한다. */
+}
+
+header.header .header-container .header-rightbar li a{
+	display: block;
+	font: 12px/1 "arial";
+	color: #999;
+	padding: 0px 10px;
+}
+
+/* 풀 페이지 스크롤 css */
+
+.SectionContainer{
+    width: 100%;
+    position: relative;
+}
+
+/* 스크롤 애니메이션 요소  css */
+.Section .introduce-image1{
+  width: 100%;
+  height: calc(100vh - 50px);
+  /* margin-top: 50px; */
+  background-image: url(/src/img/introduce_img1.png);
+  background-size: cover; 
+  position: absolute;
+  max-width: 100%;
+  background-repeat :no-repeat;
+}
+
+.Section .introduce-image2{
+  width: 100%;
+  height: calc(100vh - 50px);
+  /* margin-top: 50px; */
+  background-image: url(/src/img/introduce_img2.png);
+  background-size: cover; 
+  position: absolute;
+  max-width: 100%;
+  background-repeat :no-repeat;
+}
+
+.Section .introduce-image3{
+  width: 100%;
+  height: calc(100vh - 50px);
+  /* margin-top: 50px; */
+  background-image: url(/src/img/introduce_img3.png);
+  background-size: cover;
+  position: absolute;
+  max-width: 100%;
+  background-repeat :no-repeat;
+}
+
+.Section .introduce-text {
+  z-index: -999;
+  position: absolute; /* 핵심코드 */
+  top: 50%; /* 핵심코드 */
+  left: 50%; /* 핵심코드 */
+  transform: translate( -50%, -50%); /* 핵심코드 */
+  font-size: x-large;
+}
