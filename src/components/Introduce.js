@@ -6,29 +6,37 @@ export default function Introduce(){
     // react-fullpage options
     let options = {
       anchors: ['sectionOne','sectionTwo','sectionThree'],
-      delay: 500,
+      delay: 1200,
     };
     
     return(
         <SectionsContainer {...options}>
             <Section>
                 <div className='introduce-image1'>
-                    <Fade>
-                        <h1 className='introduce-text'>테스트 1</h1>
+                    <Fade cascade damping={0.1}>
+                        <div className='introduce-text1'>
+                            <p>소중한 사람과</p>
+                            <p>함께한 추억들을</p>
+                        </div>
                     </Fade>
                 </div>
             </Section>
             <Section>
                 <div className='introduce-image2'>
-                    <Fade>
-                        <h1 className='introduce-text'>테스트 2</h1>
+                    <Fade cascade damping={0.1}>
+                        <div className='introduce-text2'>
+                            <p>서로 기억하고</p>
+                            <p>나누기 위해</p>
+                        </div>
                     </Fade>
                 </div>
             </Section>
             <Section>
                 <div className='introduce-image3'>
-                    <Fade>
-                        <h1 className='introduce-text'>테스트 3</h1>
+                    <Fade cascade damping={0.1}>
+                        <div className='introduce-text3'>
+                            <p>제목 들어갈 자리</p>
+                        </div>
                     </Fade>
                 </div>
             </Section>
@@ -49,4 +57,14 @@ export default function Introduce(){
   sectionPaddingTop:    '0', // the section top padding
   sectionPaddingBottom: '0', // the section bottom padding
   verticalAlign:        false // align the content of each section vertical
+
+  멘트
+  page 1
+    소중한 사람과
+    함께한 추억들을
+  page 2
+    서로 기억하고
+    나누기 위해
+  page 3
+    ** 사이트 제목 들어갈 자리 **
 */

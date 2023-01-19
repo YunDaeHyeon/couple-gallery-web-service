@@ -1,80 +1,75 @@
-* {
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-}
-
-ul,
-ol {
-	list-style: none;
-}
-a {
-	text-decoration: none;
-}
-
 /* header */
-header{
-	width: 100%;
+header.header{
+	position: sticky;
+	top: 0;
+	background-color: #ddd;
 	border-bottom: 1px solid #ddd;
+
+	/* 헤더 투명하게 */
+	opacity: 0.7;
+	backdrop-filter: blur(30px);
+
+	/* box 설정 */
+	box-sizing: border-box;
+	border-radius: 0px 0px 30px 30px / 0px 0px 20px 20px;
 }
-
-header .header-container{
-	width: 1180px;
-	height: 50px;
-	margin: 0px auto;
-	position: relative; /* absolute 요소의 기준점 설정 */ 
-}
-
-header .header-container h1{
-	position: absolute;
-	left: 0px;
-	bottom: 10px;
-}
-
-header .header-container h1 a{
-	font: bold 24px/1 "arial"; /* font-weight: bold, font-size: 24px, line-height: 1, font-family: "arial"의 축약 */
-	color: #444;
-}
-
-header .header-container .header-leftbar{
-	position: absolute;
-	bottom: 0px;
-	left: 50px;
-}
-
-header .header-container .header-leftbar li{
-	float: left;
-}
-
-header .header-container .header-leftbar li a{
-	display: block; /* 인라인 요소는 block을 설정하여 크기 조절이 가능하다. */
-	font: bold 15px/1 "arial";
-	color: #555;
-	padding: 20px 40px;
-	transition: all 0.5s;
-}
-
-/* 사용자가 a 태그 위에 마우스를 올려다놓으면 (hover) */
-header .header-container .header-leftbar li a:hover{
-	background: #555;
-	color: #fff;
-}
-
-
-
-header .header-container .header-rightbar{
-	position: absolute;
-	top: 20px;
-	right: 30px;
-}
-
-header .header-container .header-rightbar li{
-	float: left; /* float를 해제하지 않은 이유는 해당 요소 자체가 이미 absolute이기 때문에 부모가 인식을 못한다. */
-}
-
-header .header-container .header-rightbar li a{
-	display: block;
-	font: 12px/1 "arial";
-	color: #999;
-	padding: 0px 10px;
-}
+  
+  header.header .header-container{
+	  width: 1180px;
+	  height: 50px;
+	  margin: 0px auto;
+	  position: relative; /* absolute 요소의 기준점 설정 */ 
+  }
+  
+  header.header .header-container h1{
+	  position: absolute;
+	  left: 0px;
+	  bottom: 10px;
+  }
+  
+  header.header .header-container h1 a{
+	  font: bold 24px/1 "arial"; /* font-weight: bold, font-size: 24px, line-height: 1, font-family: "arial"의 축약 */
+	  color: #444;
+  }
+  
+  header.header .header-container .header-leftbar{
+	  position: absolute;
+	  bottom: 0px;
+	  left: 50px;
+  }
+  
+  header.header .header-container .header-leftbar li{
+	  float: left;
+  }
+  
+  header.header .header-container .header-leftbar li a{
+	  display: block; /* 인라인 요소는 block을 설정하여 크기 조절이 가능하다. */
+	  font: bold 15px/1 "arial";
+	  color: #555;
+	  padding: 20px 40px;
+	  transition: all 0.5s;
+  }
+  
+  /* 사용자가 a 태그 위에 마우스를 올려다놓으면 (hover) */
+  header.header .header-container .header-leftbar li a:hover{
+	  background: #555;
+	  color: #fff;
+  }
+  
+  
+  header.header .header-container .header-rightbar{
+	  position: absolute;
+	  top: 20px;
+	  right: 30px;
+  }
+  
+  header.header .header-container .header-rightbar li{
+	  float: left; /* float를 해제하지 않은 이유는 해당 요소 자체가 이미 absolute이기 때문에 부모가 인식을 못한다. */
+  }
+  
+  header.header .header-container .header-rightbar li a{
+	  display: block;
+	  font: 12px/1 "arial";
+	  color: #999;
+	  padding: 0px 10px;
+  }
