@@ -1,6 +1,20 @@
 import '../styled/HeaderBar_style.css';
+import axios from 'axios';
+import { useAuth } from '../authentiaction/auth';
 
 export default function HeaderBar(){
+
+    const onTestClick = async(e) => {
+        e.preventDefault();
+        const response = await axios.get(`https://couple-gallery-web-be.run.goorm.app/`, { id : 'admin', pwd : 'qweqwe' });
+        if(response.data === 'failure'){
+            alert('로그인 실패');
+        }else if(response.data === 'error'){
+            alert('서버 오류');
+        }else if(response.data === 'success'){
+            alert('데이터 전송 성공');
+        }
+    }
     return(
         <header className='header'>
             <div className="header-container">
@@ -11,7 +25,7 @@ export default function HeaderBar(){
                     <li><a href="#!">Gallery</a></li>
                 </ul>
                 <ul className="header-rightbar">
-                    <li><a href="#!">Login</a></li>
+                    <li><a href="#!" onClick={onTestClick}>Login</a></li>
                     <li><a href="#!">Search</a></li>
                     <li><a href="#!">Setting</a></li>
                 </ul>
