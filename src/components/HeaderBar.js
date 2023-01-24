@@ -4,9 +4,11 @@ import { useAuth } from '../authentiaction/auth';
 
 export default function HeaderBar(){
 
+    const user = {id : 'army', pwd : 'daehyeon'};
+
     const onTestClick = async(e) => {
-        e.preventDefault();
-        const response = await axios.get(`https://couple-gallery-web-be.run.goorm.app/`, { id : 'admin', pwd : 'qweqwe' });
+        console.log("클릭");
+        const response = await axios.post(`https://couple-gallery-web-be.run.goorm.app/`, {user});
         if(response.data === 'failure'){
             alert('로그인 실패');
         }else if(response.data === 'error'){
@@ -15,6 +17,7 @@ export default function HeaderBar(){
             alert('데이터 전송 성공');
         }
     }
+
     return(
         <header className='header'>
             <div className="header-container">
