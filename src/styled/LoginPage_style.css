@@ -1,0 +1,10 @@
+/* 배경화면 지정 */
+.login-page-background-container{
+    width: 100%;
+    height: 100%;
+    /* margin-top: 50px; */
+    background-image: url(/src/img/loginForm_bgimg.jpg);
+    background-size: cover; 
+    max-width: 100%;
+    background-repeat :no-repeat;
+}

@@ -1,5 +1,5 @@
 /* 스크롤바 제거 */
-.login-form-container::-webkit-scrollbar {
+.register-form-container::-webkit-scrollbar {
     display: none;
 }
 
