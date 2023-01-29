@@ -8,6 +8,7 @@ import { AuthProvider } from './authentiaction/auth';
 
 function App() {
   return (
+    <AuthProvider>
       <Routes>
         <Route path="/" element={<Navigate to="/home"/>}/>
         <Route path="/home" element={<FirstPage />}/>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
+    </AuthProvider>
   );
 }
 
