@@ -63,9 +63,6 @@ function RegisterForm(){
       }else{
         e.preventDefault();
         const request = await axios.post(`https://${auth.serverIP}/signup-action`, {user});
-        console.log("전달한 데이터");
-        console.log(user);
-        console.log(request.data);
         if(request.data === 'error'){
             alert('데이터를 저장하는 중 오류가 발생하였습니다.');
         }else if(request.data === 'success'){
@@ -75,7 +72,7 @@ function RegisterForm(){
         }else{
           alert('서버와 연결되어있지 않습니다.');
         }
-    }
+      }
     }
   }
 
@@ -84,6 +81,7 @@ function RegisterForm(){
       e.preventDefault();
       navigate('/login');
     };
+    
     return(
         <Container>
           <Row style={{marginTop: '-56px',}}className="vh-100 d-flex justify-content-center align-items-center">
@@ -160,10 +158,9 @@ function RegisterForm(){
                           className="mb-3"
                         >
                           <Form.Label>성별</Form.Label>
-                          <Form.Select onChange={onInputChange}>
-                            <option>성별을 선택해주세요.</option>
-                            <option value={"남자"}>남자</option>
-                            <option value={"여자"}>여자</option>
+                          <Form.Select onChange={onInputChange} id="userSex">
+                            <option defaultValue={"남자"}>남자</option>
+                            <option defaultValue={"여자"}>여자</option>
                           </Form.Select>
                         </Form.Group>
                         <Form.Group
