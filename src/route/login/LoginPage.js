@@ -1,6 +1,6 @@
-import LoginForm from "../components/logins/LoginForm";
-import HeaderBar from "../components/HeaderBar";
-import '../styled/LoginPage_style.css';
+import LoginForm from "../../components/login/LoginForm";
+import HeaderBar from "../../components/HeaderBar";
+import '../../styled/LoginPage_style.css';
 
 function LoginPage(){
     return(

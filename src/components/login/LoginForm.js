@@ -35,6 +35,12 @@ function LoginForm(){
       navigate('/register');
   };
 
+  // 비밀번호 찾기 이동
+  const onFindPwdPageButtonClick = (e) => {
+    e.preventDefault();
+    navigate('/find-pwd');
+  };
+
     // 로그인 버튼 클릭 이벤트
   const onSignInClick = async(e) => {
     e.preventDefault();
@@ -51,7 +57,7 @@ function LoginForm(){
         auth.login(response.data); // object 형태로 전송
         onReset(e);
         // 로그인 성공 시 메인 페이지 이동
-        // navigate(`/board/list`);
+        navigate(`/home`);
     }
   };
 
@@ -95,7 +101,8 @@ function LoginForm(){
                           controlId="formBasicCheckbox"
                         >
                           <p className="small">
-                            <a className="text-primary" href="#!">
+                            <a className="text-primary" href="#!"
+                            onClick={onFindPwdPageButtonClick}>
                               비밀번호를 잊으셨나요?
                             </a>
                           </p>
@@ -108,7 +115,7 @@ function LoginForm(){
                       </Form>
                       <div className="mt-3">
                         <p className="mb-0  text-center">
-                          혹시 계정이 없나요?{" "}
+                          혹시 계정이 없으신가요?{" "}
                           <a href="#!" className="text-primary fw-bold" onClick={onRegisterPageButtonClick}>
                             회원가입
                           </a>

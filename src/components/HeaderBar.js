@@ -11,10 +11,16 @@ export default function HeaderBar(){
     const navigate = useNavigate(); // 사용자 위치 파악
 
     // 타이틀 로고, 홈 버튼 클릭 이벤트
-    const onHomeButtonClick = (e) => {
+    const onIntroButtonClick = (e) => {
         e.preventDefault();
         navigate('/');
     };
+
+    // Home 버튼 클릭 이벤트
+    const onHomeButtonClick = (e) => {
+        e.preventDefault();
+        navigate('/home');
+    }
     // const onTestClick = async(e) => {
     //     console.log("클릭");
     //     const response = await axios.post(`https://couple-gallery-web-be.run.goorm.app/`, {user});
@@ -29,7 +35,7 @@ export default function HeaderBar(){
     return(
         <header className='header'>
             <div className="header-container">
-                <h1><a href="#!" onClick={onHomeButtonClick}>Co</a></h1>
+                <h1><a href="#!" onClick={onIntroButtonClick}>Co</a></h1>
                 <ul className="header-leftbar">
                     <li><a href="#!" onClick={onHomeButtonClick}>Home</a></li>
                     <li><a href="#!">Hot</a></li>

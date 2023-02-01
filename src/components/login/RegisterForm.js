@@ -170,7 +170,7 @@ function RegisterForm(){
                           <Form.Control 
                             id="userBirthday"
                             type="text"
-                            placeholder="생년월일"
+                            placeholder="ex) 2023-01-01"
                             value={userBirthday}
                             onChange={onInputChange}
                              />

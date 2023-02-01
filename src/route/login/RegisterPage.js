@@ -1,6 +1,6 @@
-import RegisterForm from "../components/logins/RegisterForm";
-import HeaderBar from "../components/HeaderBar";
-import '../styled/RegisterPage_style.css';
+import RegisterForm from "../../components/login/RegisterForm";
+import HeaderBar from "../../components/HeaderBar";
+import '../../styled/RegisterPage_style.css';
 
 function RegisterPage(){
     return(
