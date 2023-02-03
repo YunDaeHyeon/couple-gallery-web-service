@@ -67,7 +67,8 @@ header.header{
 	  float: left; /* float를 해제하지 않은 이유는 해당 요소 자체가 이미 absolute이기 때문에 부모가 인식을 못한다. */
   }
   
-  header.header .header-container .header-rightbar li a{
+  header.header .header-container .header-rightbar li a,
+  header.header .header-container .header-rightbar li p{
 	  display: block;
 	  font: 12px/1 "arial";
 	  color: #999;

@@ -3,11 +3,14 @@ import { useState,  } from 'react';
 import "../../styled/FindPwdForm_style.css";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../authentiaction/auth';
+import axios from "axios";
 
 // React BootStrap import
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function FindPwdForm(){
+  const auth = useAuth();
+  const navigate = useNavigate();
   const [findUser, setFindUser] = useState({
     userId : '',
     userName : '',
@@ -23,7 +26,39 @@ function FindPwdForm(){
         ...findUser,
         [id] : value,
     });
+  };
+
+  const onReset = (e) => {
+    setFindUser({
+      userId : '',
+      userName : '',
+      userBirthday : '',
+    });
   }
+
+  // 비밀번호 찾기 버튼 클릭 시
+  const onPwdFindButtonClick = async(e) => {
+    // 입력하지 않은 칸이 존재하면
+    if(findUser.userId.length === 0 || findUser.userName.length === 0 || findUser.userBirthday.length === 0){
+      alert('입력하지 않은 칸이 존재합니다!');
+      e.preventDefault();
+    }else{
+      e.preventDefault();
+      const request = await axios.post(`https://${auth.serverIP}/findpwd-action`, {findUser})
+      if(request.data === 'error'){
+        alert('에러 발생');
+      }else if(request.data.length !== 0){
+        if(request.data === 'fail'){
+          alert('일치하는 사용자가 존재하지 않습니다.');
+        }else{
+          onReset();
+          alert(request.data);
+        }
+      }else{
+        alert('서버와의 연결에 실패하였습니다.');
+      }
+    }
+  };
 
   return(
     <Container>
@@ -34,7 +69,7 @@ function FindPwdForm(){
           <Card.Body>
             <div className="mb-3 mt-md-4">
               <h2 className="fw-bold mb-2 text-uppercase ">비밀번호 찾기</h2>
-              <p className="mb-5">null</p>
+              <p className="mb-5">비밀번호를 잊으셨나요?</p>
               <div className="mb-3">
                 <Form>
                   <Form.Group className="mb-3">
@@ -72,7 +107,7 @@ function FindPwdForm(){
                       onChange={onInputChange}/>
                   </Form.Group>
                   <div className="d-grid">
-                    <Button variant="primary">
+                    <Button variant="primary" onClick={onPwdFindButtonClick}>
                       비밀번호 찾기
                     </Button>
                   </div>
@@ -84,7 +119,7 @@ function FindPwdForm(){
       </Col>
     </Row>
   </Container>
-    );
+  );
 }
 
 export default FindPwdForm;

@@ -1,6 +1,4 @@
-import { useRef, useState } from 'react'; 
 import '../styled/HeaderBar_style.css';
-import axios from 'axios';
 import {
     Link,
     useNavigate
@@ -8,6 +6,8 @@ import {
 import { useAuth } from '../authentiaction/auth';
 
 export default function HeaderBar(){
+    const auth = useAuth();
+    const session = JSON.parse(sessionStorage.getItem('user'));
     const navigate = useNavigate(); // 사용자 위치 파악
 
     // 타이틀 로고, 홈 버튼 클릭 이벤트
@@ -21,17 +21,15 @@ export default function HeaderBar(){
         e.preventDefault();
         navigate('/home');
     }
-    // const onTestClick = async(e) => {
-    //     console.log("클릭");
-    //     const response = await axios.post(`https://couple-gallery-web-be.run.goorm.app/`, {user});
-    //     if(response.data === 'failure'){
-    //         alert('로그인 실패');
-    //     }else if(response.data === 'error'){
-    //         alert('서버 오류');
-    //     }else if(response.data === 'success'){
-    //         alert('데이터 전송 성공');
-    //     }
-    // }
+
+    // 로그아웃 버튼 클릭 이벤트
+    const onLogoutButtonClick = (e) => {
+        alert('로그아웃하였습니다.');
+        sessionStorage.removeItem('user'); // 사용자 session 제거
+        auth.logout(); // 사용자 state 제거
+        navigate('/login');
+    }
+
     return(
         <header className='header'>
             <div className="header-container">
@@ -42,11 +40,30 @@ export default function HeaderBar(){
                     <li><a href="#!">Gallery</a></li>
                 </ul>
                 <ul className="header-rightbar">
-                    <li>
-                    <Link to='/login'>
-                        <a href="#!">Login</a>
-                    </Link>
-                    </li>
+                    {   // 사용자 정보가 존재하지 않으면 로그인 버튼 출력
+                        Object.keys(auth.user).length === 0 && !session ? ( 
+                            <li>
+                                <Link to='/login'>
+                                    <a href="#!">Login</a>
+                                </Link>
+                            </li>
+                        ) : Object.keys(auth.user).length !== 0 && !session ? (
+                            <li>
+                                <Link to='/login'>
+                                    <a href="#!">Login</a>
+                                </Link>
+                            </li>
+                        ) : (
+                            <>
+                                <li>
+                                    <p className='header-rightbar-username'>{session[0].user_name}님 환영합니다.</p>
+                                </li>
+                                <li>
+                                    <a href="#!" onClick={onLogoutButtonClick}>Logout</a>
+                                </li>
+                            </>
+                        )
+                    }
                     <li><a href="#!">Search</a></li>
                     <li><a href="#!">Setting</a></li>
                 </ul>
